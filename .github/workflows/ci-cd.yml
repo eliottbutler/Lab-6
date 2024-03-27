@@ -1,0 +1,19 @@
+name: "first wokrflow"
+on: 
+  push:
+    branches:
+      -main
+      
+jobs:
+  build-test-deploy: 
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get code from repositry
+        uses: actions/checkout@v4
+      - name: Set up mode
+        uses: actions/seup-node@v4
+      - name: run unit test
+        run: npm run test
+      - name: Bundle the deployable application
+        run: npm run build
+      
